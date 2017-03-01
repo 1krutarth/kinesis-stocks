@@ -1,12 +1,13 @@
 #Stocks
+##A quick demonstration of Amazon Kinesis Streams on NYSE Stocks.
 
-A quick demonstration of Amazon Kinesis using Stocks.
+In order to use AWS Kinesis on a fresh system, you'd need to run:
 
-Work: 
-1. Extract desired values of stocks from finance.google.com
-2. Transfer it on Amazon Kinesis to have it stored on Amazon DynamoDB
+ - `aws configure`
+ - And set your `access key`, `secret access key`, `default region` and `output format`
 
-Libraries:
-BeautifulSoup
-grequests
-boto3
+Dependent Libraries:
+
+ - [boto3](https://github.com/boto/boto3)
+ - [grequests](https://github.com/kennethreitz/grequests)
+ - [BeautifulSoup](https://pypi.python.org/pypi/beautifulsoup4)
