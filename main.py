@@ -18,7 +18,8 @@
 # cPickle.loads(a.decode('base64','strict') )
 
 from ConfigParser import SafeConfigParser
-from src import CsvReader, Request
+from src import CsvReader, Request, Kinesis
+import json
 
 def main():
 	parser = SafeConfigParser()
@@ -35,7 +36,19 @@ def main():
 	request = Request( url, stocks, int(capacity) )
 	stock_info = request.get_url_info()
 
-	print stock_info
+	# print stock_info
+
+	stream = parser.get( 'kinesis', 'stream_name' )
+	shards = json.loads( parser.get('kinesis', 'shards') )
+	kinesis = Kinesis( stream, shards )
+	responses = kinesis.stream_stock( stock_info )
+
+	# print( responses )
+
+	print('{},{},{},{},{},{}'.format('Timestamp','StatusCode','ShardId', 'Sequence Number', 'Stock', 'Stock Price'))
+	for s,r in zip(stock_info,responses):
+		t = ( s + r )
+		print( ','.join(str(i) for i in t) )
 
 if __name__ == '__main__':
 	main()
