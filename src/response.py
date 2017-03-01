@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import threading
 
 class Response(threading.Thread):
+	"""Fetches page for url, extracts stock price."""
 	def __init__( self, args=() ):
 		threading.Thread.__init__(self, group=None, target=None, name=None, verbose=None)
 		self._response, self._info, self._index, self.stock = args

@@ -17,14 +17,10 @@ def main():
 	request = Request( url, stocks, int(capacity) )
 	stock_info = request.get_url_info()
 
-	# print stock_info
-
 	stream = parser.get( 'kinesis', 'stream_name' )
 	shards = json.loads( parser.get('kinesis', 'shards') )
 	kinesis = Kinesis( stream, shards )
 	responses = kinesis.stream_stock( stock_info )
-
-	# print( responses )
 
 	print('{},{},{},{},{},{}'.format('Timestamp','StatusCode','ShardId', 'Sequence Number', 'Stock', 'Stock Price'))
 	for s,r in zip(stock_info,responses):

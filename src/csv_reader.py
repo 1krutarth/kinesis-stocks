@@ -2,6 +2,7 @@ import csv
 import os
 
 class CsvReader:
+	"""Reads CSV file containing NYSE stock information"""
 	def __init__( self, folder, csv_file, capacity ):
 		# self._path = os.path.join(os.getcwd(),folder,csv_file)
 		self._path = '{}/{}'.format(folder, csv_file)

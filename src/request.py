@@ -3,6 +3,7 @@ import grequests
 from response import Response
 
 class Request:
+	"""Formulates URL for each stock, creates multiple threads to get page for url"""
 	def __init__( self, url, stocks, capacity ):
 		self._capacity = capacity
 		self._urls = [None]*self._capacity

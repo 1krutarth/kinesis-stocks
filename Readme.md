@@ -11,3 +11,5 @@ Dependent Libraries:
  - [boto3](https://github.com/boto/boto3)
  - [grequests](https://github.com/kennethreitz/grequests)
  - [BeautifulSoup](https://pypi.python.org/pypi/beautifulsoup4)
+
+Adding on EC2 instance as a cron-job or as TaskQueue on GAE (with minor tweaks) are some ways this application can be deployed. 

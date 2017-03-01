@@ -3,6 +3,7 @@ import cPickle as pickle
 import threading
 
 class Kinesis:
+	"""Generates Kinesis threads, assigns shards to a stream and returns response parameters"""
 	def __init__( self, stream, shards ):
 		self._stream_name = stream
 		self._shards = shards
