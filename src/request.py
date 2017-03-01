@@ -33,4 +33,4 @@ class Request:
 	def get_url_info( self ):
 		self._responses = self._send_requests()
 		self._generate_threads()
-		return copy.deepcopy(self.info)
+		return self.info
